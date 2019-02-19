@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Cotizador_Celebraciones.Models;
 
 namespace Cotizador_Celebraciones
 {
@@ -33,6 +35,9 @@ namespace Cotizador_Celebraciones
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<Cotizador_CelebracionesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Cotizador_CelebracionesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

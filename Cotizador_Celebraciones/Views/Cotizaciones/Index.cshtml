@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Cotizador_Celebraciones.Models.Cotizacion>
+
+@{
+    ViewData["Title"] = "Lista De Cotizaciones";
+}
+
+<h1>Lista De Cotizaciones</h1>
+
+<p>
+    <a asp-action="Create">Agregar Cotizacion</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.Lugar )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detalles)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lugar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detalles)
+            </td>
+            <td>
+               <!-- <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |-->
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> 
+               <!-- <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>-->
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
